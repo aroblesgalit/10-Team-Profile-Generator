@@ -1,0 +1,131 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    --color-black: #40514E;
+    --color-blue: #2F89FC;
+    --color-green: #30E3CA;
+    --color-white: #F5F5F5; 
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--color-white);
+}
+
+header {
+    padding: 20px;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+}
+
+header h1 {
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    /* background-color: var(--color-blue); */
+}
+
+section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.employees {
+    display: flex;
+    justify-content: space-around
+}
+
+.employee-card {
+    background-color: #fff;
+    width: 290px;
+    border-radius: 4px;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.5);
+}
+
+.card-header {
+    height: 100px;
+    background-color: var(--color-black);
+    padding: 20px;
+    display: flex;
+    align-items: middle;
+}
+
+.card-image {
+    /* background-color: var(--color-blue); */
+}
+
+.card-image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+
+.card-title {
+    /* background-color: var(--color-blue); */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 18px;
+}
+
+.card-name {
+    color: var(--color-green);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.card-role {
+    color: var(--color-white);
+    opacity: 0.5;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-info {
+    list-style: none;;
+}
+
+.card-info-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.card-info-item:first-child {
+    padding-top: 0;
+}
+
+.card-info-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.card-item-label {
+    font-size: 14;
+    color: var(--color-black);
+    opacity: 0.5;
+    margin-bottom: 4px;
+}
+
+.card-item {
+    font-size: 18px;
+    color: var(--color-black);
+    /* font-weight: 700; */
+}
