@@ -24,10 +24,11 @@ async function init() {
 
         // Prompt for team members
         const response = await promptTeamMembers();
-        employees.push(response);
+        employees.push(...response);
+        console.log(employees);
 
         // Prompt if more to add
-        await addAnother();
+        // await addAnother();
 
     } catch (err) {
         console.log(err);
@@ -64,6 +65,7 @@ function promptManager() {
         ])
 }
 // Prompt for type of team member
+const teamMembers = [];
 async function promptTeamMembers() {
     try {
         const { role } = await promptMemberRole();
@@ -91,7 +93,8 @@ async function promptTeamMembers() {
                         name: "github"
                     }
                 ]).then(function({ name, id, email, github }) {
-                    return new Engineer(name, id, email, github)
+                    teamMembers.push(new Engineer(name, id, email, github));
+                    return promptTeamMembers();
                 })
         } else if (role === "Intern") {
             return inquirer
@@ -117,8 +120,11 @@ async function promptTeamMembers() {
                         name: "school"
                     }
                 ]).then(function({ name, id, email, school }) {
-                    return new Engineer(name, id, email, school)
+                    teamMembers.push(new Intern(name, id, email, school));
+                    return promptTeamMembers();
                 })
+        } else {
+            return teamMembers;
         }
 
     } catch (err) {
@@ -134,7 +140,8 @@ function promptMemberRole() {
             name: "role",
             choices: [
                 "Engineer",
-                "Intern"
+                "Intern",
+                "No more member to add"
             ]
         })
 }
