@@ -14,8 +14,22 @@ init();
 
 async function init() {
     try {
+        // Create an empty array to push all employees into
+        const employees = [];
+        
+        // Prompt for manager
+        const { name, id, email, officeNumber } = await promptManager();
+        // Push manager into array
+        employees.push(new Manager(name, id, email, officeNumber));
 
-        const manager = await promptManager();
+        // Prompt for type of team member: engineer or intern
+
+        // Prompt for engineer
+
+        // Prompt for intern
+
+        
+
     
     } catch (err) {
         console.log(err);
