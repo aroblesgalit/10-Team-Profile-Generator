@@ -25,10 +25,19 @@ async function init() {
         // Prompt for team members
         const response = await promptTeamMembers();
         employees.push(...response);
-        console.log(employees);
 
-        // Prompt if more to add
-        // await addAnother();
+        // After the user has input all employees desired, call the `render` function (required
+        // above) and pass in an array containing all employee objects; the `render` function will
+        // generate and return a block of HTML including templated divs for each employee!
+        const mainHtml = await render(employees);
+        console.log(mainHtml);
+
+        // After you have your html, you're now ready to create an HTML file using the HTML
+        // returned from the `render` function. Now write it to a file named `team.html` in the
+        // `output` folder. You can use the variable `outputPath` above target this location.
+        // Hint: you may need to check if the `output` folder exists and create it if it
+        // does not.
+        // fs.writeFile(outputPath, mainHtml);
 
     } catch (err) {
         console.log(err);
@@ -92,7 +101,7 @@ async function promptTeamMembers() {
                         message: "Enter the engineer's github username:",
                         name: "github"
                     }
-                ]).then(function({ name, id, email, github }) {
+                ]).then(function ({ name, id, email, github }) {
                     teamMembers.push(new Engineer(name, id, email, github));
                     return promptTeamMembers();
                 })
@@ -119,7 +128,7 @@ async function promptTeamMembers() {
                         message: "Enter the intern's school:",
                         name: "school"
                     }
-                ]).then(function({ name, id, email, school }) {
+                ]).then(function ({ name, id, email, school }) {
                     teamMembers.push(new Intern(name, id, email, school));
                     return promptTeamMembers();
                 })
@@ -145,27 +154,9 @@ function promptMemberRole() {
             ]
         })
 }
-// Function to ask if user wants to add another team member
-// async function addAnother() {
-//     try {
-
-//     } catch (err)
-//     return inquirer
-//         .prompt ({
-
-//         })
-// } 
 // and to create objects for each team member (using the correct classes as blueprints!)
 
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
 
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
 
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
