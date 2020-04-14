@@ -23,19 +23,11 @@ async function init() {
         employees.push(new Manager(name, id, email, officeNumber));
 
         // Prompt for team members
-        promptTeamMembers();
-        // Prompt for engineer
-        // if (role === "Engineer") {
-        //     const { name, id, email, github } = await promptEngineer();
-        //     employees.push(new Engineer(name, id, email, github));
-        // } else if (role === "Intern") {
-        //     const { name, id, email, school } = await promptEngineer();
-        //     employees.push(new Engineer(name, id, email, school));
-        // }
-        // Prompt for intern
+        const response = await promptTeamMembers();
+        employees.push(response);
 
-
-
+        // Prompt if more to add
+        await addAnother();
 
     } catch (err) {
         console.log(err);
@@ -76,16 +68,64 @@ async function promptTeamMembers() {
     try {
         const { role } = await promptMemberRole();
         if (role === "Engineer") {
-            console.log(role);
+            return inquirer
+                .prompt([
+                    {
+                        type: "input",
+                        message: "Enter the engineer's name:",
+                        name: "name"
+                    },
+                    {
+                        type: "number",
+                        message: "Enter the engineer's ID:",
+                        name: "id"
+                    },
+                    {
+                        type: "input",
+                        message: "Enter the engineer's email:",
+                        name: "email"
+                    },
+                    {
+                        type: "input",
+                        message: "Enter the engineer's github username:",
+                        name: "github"
+                    }
+                ]).then(function({ name, id, email, github }) {
+                    return new Engineer(name, id, email, github)
+                })
         } else if (role === "Intern") {
-            console.log(role);
+            return inquirer
+                .prompt([
+                    {
+                        type: "input",
+                        message: "Enter the intern's name:",
+                        name: "name"
+                    },
+                    {
+                        type: "number",
+                        message: "Enter the intern's ID:",
+                        name: "id"
+                    },
+                    {
+                        type: "input",
+                        message: "Enter the intern's email:",
+                        name: "email"
+                    },
+                    {
+                        type: "input",
+                        message: "Enter the intern's school:",
+                        name: "school"
+                    }
+                ]).then(function({ name, id, email, school }) {
+                    return new Engineer(name, id, email, school)
+                })
         }
 
     } catch (err) {
         console.log(err);
     }
 }
-
+// Prompt for member role
 function promptMemberRole() {
     return inquirer
         .prompt({
@@ -98,10 +138,11 @@ function promptMemberRole() {
             ]
         })
 }
-
-
 // Function to ask if user wants to add another team member
-// function addMorePrompt() {
+// async function addAnother() {
+//     try {
+
+//     } catch (err)
 //     return inquirer
 //         .prompt ({
 
