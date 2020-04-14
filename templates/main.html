@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>My Team</title>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
     <!-- My styles -->
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -24,10 +24,11 @@
     <!-- Team section -->
     <section>
         <div class="container employees">
+            <!-- Manager -->
             <div class="employee-card">
                 <div class="card-header">
                     <div class="card-image">
-                        <img src="https://via.placeholder.com/60" alt="Avatar">
+                        <img src="https://i.ya-webdesign.com/images/avatar-icon-png-1.png" alt="Avatar">
                     </div>
                     <div class="card-title">
                         <div class="card-name">Samantha</div>
@@ -51,7 +52,98 @@
                     </ul>
                 </div>
             </div>
-            {{ team }}
+
+            <!-- Engineer -->
+            <div class="employee-card">
+                <div class="card-header">
+                    <div class="card-image">
+                        <img src="https://mbdentalhome.com/wp-content/uploads/2018/07/man.png" alt="Avatar">
+                    </div>
+                    <div class="card-title">
+                        <div class="card-name">Albert</div>
+                        <div class="card-role">Engineer</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <ul class="card-info">
+                        <li class="card-info-item">
+                            <div class="card-item-label">ID</div>
+                            <div class="card-item">002</div>
+                        </li>
+                        <li class="card-info-item">
+                            <div class="card-item-label">EMAIL</div>
+                            <div class="card-item"><a href="mailto:{{ email }}">albert@engineer.com</a></div>
+                        </li>
+                        <li class="card-info-item">
+                            <div class="card-item-label">GITHUB</div>
+                            <div class="card-item"><a href="https://github.com/{{ github }}"
+                                    target="_blank">albertEngineer</a></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Engineer -->
+            <div class="employee-card">
+                <div class="card-header">
+                    <div class="card-image">
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png" alt="Avatar">
+                    </div>
+                    <div class="card-title">
+                        <div class="card-name">Vince</div>
+                        <div class="card-role">Engineer</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <ul class="card-info">
+                        <li class="card-info-item">
+                            <div class="card-item-label">ID</div>
+                            <div class="card-item">003</div>
+                        </li>
+                        <li class="card-info-item">
+                            <div class="card-item-label">EMAIL</div>
+                            <div class="card-item"><a href="mailto:{{ email }}">vince@engineer.com</a></div>
+                        </li>
+                        <li class="card-info-item">
+                            <div class="card-item-label">GITHUB</div>
+                            <div class="card-item"><a href="https://github.com/{{ github }}"
+                                    target="_blank">vinceEngineer</a></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Intern -->
+            <div class="employee-card">
+                <div class="card-header">
+                    <div class="card-image">
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png" alt="Avatar">
+                    </div>
+                    <div class="card-title">
+                        <div class="card-name">Anthony</div>
+                        <div class="card-role">Intern</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <ul class="card-info">
+                        <li class="card-info-item">
+                            <div class="card-item-label">ID</div>
+                            <div class="card-item">004</div>
+                        </li>
+                        <li class="card-info-item">
+                            <div class="card-item-label">EMAIL</div>
+                            <div class="card-item"><a href="mailto:{{ email }}">anthony@intern.com</a></div>
+                        </li>
+                        <li class="card-info-item">
+                            <div class="card-item-label">SCHOOL</div>
+                            <div class="card-item">Intern University of Coding</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- {{ team }} -->
+
         </div>
     </section>
 

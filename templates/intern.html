@@ -1,13 +1,27 @@
-<div class="card employee-card">
+<div class="employee-card">
     <div class="card-header">
-        <h2 class="card-title">{{ name }}</h2>
-        <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>{{ role }}</h3>
+        <div class="card-image">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png" alt="Avatar">
+        </div>
+        <div class="card-title">
+            <div class="card-name">{{ name }}</div>
+            <div class="card-role">{{ role }}</div>
+        </div>
     </div>
     <div class="card-body">
-        <ul class="list-group">
-            <li class="list-group-item">ID: {{ id }}</li>
-            <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
-            <li class="list-group-item">School: {{ school }}</li>
+        <ul class="card-info">
+            <li class="card-info-item">
+                <div class="card-item-label">ID</div>
+                <div class="card-item">{{ id }}</div>
+            </li>
+            <li class="card-info-item">
+                <div class="card-item-label">EMAIL</div>
+                <div class="card-item"><a href="mailto:{{ email }}">{{ email }}</a></div>
+            </li>
+            <li class="card-info-item">
+                <div class="card-item-label">SCHOOL</div>
+                <div class="card-item">{{ school }}</div>
+            </li>
         </ul>
     </div>
 </div>
