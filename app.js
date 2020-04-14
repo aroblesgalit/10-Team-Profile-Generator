@@ -22,8 +22,8 @@ async function init() {
         // Push manager into array
         employees.push(new Manager(name, id, email, officeNumber));
 
-        // Prompt for type of team member: engineer or intern
-        const { role } = await promptMemberRole();
+        // Prompt for team members
+        promptTeamMembers();
         // Prompt for engineer
         // if (role === "Engineer") {
         //     const { name, id, email, github } = await promptEngineer();
@@ -72,75 +72,33 @@ function promptManager() {
         ])
 }
 // Prompt for type of team member
-function promptMemberRole() {
+async function promptTeamMembers() {
+    try {
+        const { role } = await promptMemberRole();
+        if (role === "Engineer") {
+            console.log(role);
+        } else if (role === "Intern") {
+            console.log(role);
+        }
 
-        // Type of team member
-        return inquirer
-            .prompt({
-                type: "list",
-                message: "Which type of team member would you like to add next?",
-                name: "role",
-                choices: [
-                    "Engineer",
-                    "Intern"
-                ]
-            })
-            // console.log(role);
-        // Engineer prompts
-        // if (choices === "Engineer") {
-        //     return inquirer
-        //         .prompt ([
-        //             {
-        //                 type: "input",
-        //                 message: "Enter the engineer's name:",
-        //                 name: "name"
-        //             },
-        //             {
-        //                 type: "number",
-        //                 message: "Enter the engineer's ID:",
-        //                 name: "id"
-        //             },
-        //             {
-        //                 type: "input",
-        //                 message: "Enter the engineer's email:",
-        //                 name: "email"
-        //             },
-        //             {
-        //                 type: "input",
-        //                 message: "Enter the engineer's github username:",
-        //                 name: "github"
-        //             }
-        //         ])
-        // }
-        // // Intern prompts
-        // if (choices === "Engineer") {
-        //     return inquirer
-        //         .prompt ([
-        //             {
-        //                 type: "input",
-        //                 message: "Enter the engineer's name:",
-        //                 name: "name"
-        //             },
-        //             {
-        //                 type: "number",
-        //                 message: "Enter the engineer's ID:",
-        //                 name: "id"
-        //             },
-        //             {
-        //                 type: "input",
-        //                 message: "Enter the engineer's email:",
-        //                 name: "email"
-        //             },
-        //             {
-        //                 type: "input",
-        //                 message: "Enter the engineer's github username:",
-        //                 name: "github"
-        //             }
-        //         ])
-        // }
-
-    // }
+    } catch (err) {
+        console.log(err);
+    }
 }
+
+function promptMemberRole() {
+    return inquirer
+        .prompt({
+            type: "list",
+            message: "Which type of team member would you like to add next?",
+            name: "role",
+            choices: [
+                "Engineer",
+                "Intern"
+            ]
+        })
+}
+
 
 // Function to ask if user wants to add another team member
 // function addMorePrompt() {
