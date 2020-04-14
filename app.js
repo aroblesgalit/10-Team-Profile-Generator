@@ -18,9 +18,9 @@ async function init() {
         const employees = [];
 
         // Prompt for manager
-        const { name, id, email, officeNumber } = await promptManager();
+        const { name, id, email, imageUrl, officeNumber } = await promptManager();
         // Push manager into array
-        employees.push(new Manager(name, id, email, officeNumber));
+        employees.push(new Manager(name, id, email, imageUrl, officeNumber));
 
         // Prompt for team members
         const response = await promptTeamMembers();
@@ -74,6 +74,11 @@ function promptManager() {
                 type: "number",
                 message: "Enter the manager's office number:",
                 name: "officeNumber"
+            },
+            {
+                type: "input",
+                message: "Enter the manager's image url:",
+                name: "imageUrl"
             }
         ])
 }
@@ -104,9 +109,14 @@ async function promptTeamMembers() {
                         type: "input",
                         message: "Enter the engineer's github username:",
                         name: "github"
+                    },
+                    {
+                        type: "input",
+                        message: "Enter the engineer's image url:",
+                        name: "imageUrl"
                     }
-                ]).then(function ({ name, id, email, github }) {
-                    teamMembers.push(new Engineer(name, id, email, github));
+                ]).then(function ({ name, id, email, imageUrl, github }) {
+                    teamMembers.push(new Engineer(name, id, email, imageUrl, github));
                     return promptTeamMembers();
                 })
         } else if (role === "Intern") {
@@ -131,9 +141,14 @@ async function promptTeamMembers() {
                         type: "input",
                         message: "Enter the intern's school:",
                         name: "school"
+                    },
+                    {
+                        type: "input",
+                        message: "Enter the intern's image url:",
+                        name: "imageUrl"
                     }
-                ]).then(function ({ name, id, email, school }) {
-                    teamMembers.push(new Intern(name, id, email, school));
+                ]).then(function ({ name, id, email, imageUrl, school }) {
+                    teamMembers.push(new Intern(name, id, email, imageUrl, school));
                     return promptTeamMembers();
                 })
         } else {
