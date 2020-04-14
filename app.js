@@ -16,27 +16,36 @@ async function init() {
     try {
         // Create an empty array to push all employees into
         const employees = [];
-        
+
         // Prompt for manager
         const { name, id, email, officeNumber } = await promptManager();
         // Push manager into array
         employees.push(new Manager(name, id, email, officeNumber));
 
         // Prompt for type of team member: engineer or intern
-
+        const { role } = await promptMemberRole();
         // Prompt for engineer
-
+        // if (role === "Engineer") {
+        //     const { name, id, email, github } = await promptEngineer();
+        //     employees.push(new Engineer(name, id, email, github));
+        // } else if (role === "Intern") {
+        //     const { name, id, email, school } = await promptEngineer();
+        //     employees.push(new Engineer(name, id, email, school));
+        // }
         // Prompt for intern
 
-        
 
-    
+
+
     } catch (err) {
         console.log(err);
     }
-    
+
 }
+
+
 // Write code to use inquirer to gather information about the development team members,
+// Manager prompts
 function promptManager() {
     return inquirer
         .prompt([
@@ -62,6 +71,84 @@ function promptManager() {
             }
         ])
 }
+// Prompt for type of team member
+function promptMemberRole() {
+
+        // Type of team member
+        return inquirer
+            .prompt({
+                type: "list",
+                message: "Which type of team member would you like to add next?",
+                name: "role",
+                choices: [
+                    "Engineer",
+                    "Intern"
+                ]
+            })
+            // console.log(role);
+        // Engineer prompts
+        // if (choices === "Engineer") {
+        //     return inquirer
+        //         .prompt ([
+        //             {
+        //                 type: "input",
+        //                 message: "Enter the engineer's name:",
+        //                 name: "name"
+        //             },
+        //             {
+        //                 type: "number",
+        //                 message: "Enter the engineer's ID:",
+        //                 name: "id"
+        //             },
+        //             {
+        //                 type: "input",
+        //                 message: "Enter the engineer's email:",
+        //                 name: "email"
+        //             },
+        //             {
+        //                 type: "input",
+        //                 message: "Enter the engineer's github username:",
+        //                 name: "github"
+        //             }
+        //         ])
+        // }
+        // // Intern prompts
+        // if (choices === "Engineer") {
+        //     return inquirer
+        //         .prompt ([
+        //             {
+        //                 type: "input",
+        //                 message: "Enter the engineer's name:",
+        //                 name: "name"
+        //             },
+        //             {
+        //                 type: "number",
+        //                 message: "Enter the engineer's ID:",
+        //                 name: "id"
+        //             },
+        //             {
+        //                 type: "input",
+        //                 message: "Enter the engineer's email:",
+        //                 name: "email"
+        //             },
+        //             {
+        //                 type: "input",
+        //                 message: "Enter the engineer's github username:",
+        //                 name: "github"
+        //             }
+        //         ])
+        // }
+
+    // }
+}
+
+// Function to ask if user wants to add another team member
+// function addMorePrompt() {
+//     return inquirer
+//         .prompt ({
+
+//         })
+// } 
 // and to create objects for each team member (using the correct classes as blueprints!)
 
 // After the user has input all employees desired, call the `render` function (required
