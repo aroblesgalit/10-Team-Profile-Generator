@@ -41,4 +41,4 @@ so that I have quick access to emails and GitHub profiles
 ![Generated Team Profile](./assets/images/teamProfileGenerator-screenshot.jpg)
 
 ## Animate GIF
-![Team Profile Generator](./assets/images)
+![Team Profile Generator](./assets/images/teamProfileGenerator.gif)
