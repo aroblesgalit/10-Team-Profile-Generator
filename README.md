@@ -38,7 +38,7 @@ so that I have quick access to emails and GitHub profiles
 ```
 
 ## Screenshots
-![Generated Team Profile](./assets/images/teamProfileGenerator-screenshot.jpg)
+![Generated Team Profile](./assets/images/teamProfileGenerator-screenshot.JPG)
 
 ## Animate GIF
 ![Team Profile Generator](./assets/images/teamProfileGenerator.gif)
